@@ -14,6 +14,8 @@ class _DotedAnimationState extends State<DotedLineAnimation>
   var _height = 6.0;
   var _width = 0.0;
 
+  bool isLineExist = false;
+
   @override
   void initState() {
     super.initState();
@@ -28,13 +30,21 @@ class _DotedAnimationState extends State<DotedLineAnimation>
     return Scaffold(
       floatingActionButton: FloatingActionButton(
         onPressed: () {
-          setState(() {
-            _width = MediaQuery.of(context).size.width;
-            animationController.forward();
-          });
+          if (!isLineExist) {
+            setState(() {
+              _width = MediaQuery.of(context).size.width;
+              animationController.forward();
+            });
+          } else {
+            setState(() {
+              _width = 0;
+              animationController.reverse();
+            });
+          }
+          isLineExist = !isLineExist;
         },
         tooltip: 'Toggle',
-        child: Icon(Icons.threed_rotation),
+        child: Icon(Icons.ac_unit),
       ),
       body: SafeArea(
         child: Center(
