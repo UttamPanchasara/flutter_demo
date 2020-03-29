@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_circular_text/circular_text.dart';
 import 'package:flutter_circular_text/circular_text/widget.dart';
 import 'package:flutter_demo/circular_seekbar.dart';
+import 'package:flutter_demo/dottedline_animation.dart';
 
 void main() => runApp(MyApp());
 
@@ -14,7 +15,7 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
-      home: CircularSeekBar(),
+      home: DotedLineAnimation(),
     );
   }
 }
